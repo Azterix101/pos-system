@@ -10,7 +10,7 @@ The POS System API is a robust point-of-sale system built using Fastify, Sequeli
 - **Sales Transactions**: Handle sales transactions with product and upsell product details.
 
 ## Requirements
-- Node.js (v14 or higher)
+- Node.js (v20 or higher)
 - MySQL
 
 ## Setup

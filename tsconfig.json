@@ -1,14 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "es2020",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./node_modules/@types", "./types"],
-    "outDir": "./dist"
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "typeRoots": ["./node_modules/@types"],
+    "paths": {
+      "*": ["src/*"]
+    }
   },
-  "include": ["src/**/*.ts", "types/**/*.d.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts", "jest.config.js"],
+  "exclude": ["node_modules", "dist"]
 }
