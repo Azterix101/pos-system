@@ -1,33 +1,39 @@
 # POS System API
 
 ## Overview
+
 The POS System API is a robust point-of-sale system built using Fastify, Sequelize, and TypeScript. It supports various functionalities such as user authentication, product management, upsell product management, and handling sales transactions.
 
 ## Features
+
 - **User Authentication**: Sign up, log in, and token-based authentication.
 - **Product Management**: Create, read, update, and delete products.
 - **Upsell Product Management**: Link and manage upsell products.
 - **Sales Transactions**: Handle sales transactions with product and upsell product details.
 
 ## Requirements
+
 - Node.js (v20 or higher)
 - MySQL
 
 ## Setup
 
 1. **Clone the repository**:
+
    ```sh
-   git clone https://github.com/your-username/pos-system.git
+   git clone https://github.com/Azterix101/pos-system.git
    cd pos-system
    ```
 
 2. **Install dependencies**:
+
    ```sh
    npm install
    ```
 
 3. **Environment variables**:
    Create a `.env` file in the root directory and add the following:
+
    ```env
    DB_HOST=db
    DB_USER=user
@@ -37,10 +43,10 @@ The POS System API is a robust point-of-sale system built using Fastify, Sequeli
    ```
 
 4. **Database setup**:
-   Ensure your MySQL server is running and the database specified in `.env` is created. You can use the following Docker setup for MySQL:
+   Ensure your MySQL server is running and the database specified in `.env` is created. You can use the following Docker setup for MySQL OR simply run the database locally:
 
    ```yaml
-   version: '3.8'
+   version: "3.8"
 
    services:
      db:
@@ -79,12 +85,23 @@ The POS System API is a robust point-of-sale system built using Fastify, Sequeli
          retries: 3
    ```
 
-5. **Run migrations and seed database**:
+5. **Run migrations and seed database(running via docker)**:
+
    ```sh
    npm run seed
    ```
 
+   **_OR_**
+
+   **Run migrations and seed database (if mysql-db is running locally)**:
+
+   ```sh
+   docker-compose exec app sh
+   npm run seed
+   ```
+
 6. **Start the server**:
+
    ```sh
    npm start
    ```
@@ -95,9 +112,11 @@ The POS System API is a robust point-of-sale system built using Fastify, Sequeli
    ```
 
 ## API Documentation
+
 The API documentation is available at [http://localhost:3000/documentation](http://localhost:3000/documentation) after starting the server.
 
 ## Postman Collection
+
 A Postman collection is provided for testing the API endpoints. Import the collection using the Postman application:
 
 1. Open Postman.
@@ -106,17 +125,21 @@ A Postman collection is provided for testing the API endpoints. Import the colle
 4. Click on Import.
 
 ## Linting
+
 To check for linting errors:
+
 ```sh
 npm run lint
 ```
 
 To fix linting errors automatically:
+
 ```sh
 npm run lint:fix
 ```
 
 ## Project Structure
+
 ```
 src/
 ├── models/
@@ -154,9 +177,11 @@ src/
 ```
 
 ## License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Make sure to update tests as appropriate.
 
 For any further questions or assistance, please feel free to contact me or open an issue in the repository.
