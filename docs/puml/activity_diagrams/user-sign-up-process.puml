@@ -1,0 +1,15 @@
+@startuml
+start
+:Enter Email and Password;
+:Sign Up;
+if (User exists?) then (yes)
+  :Show Error (User already exists);
+  stop
+else (no)
+  :Hash Password;
+  :Store User in Database;
+  :Generate Token;
+  :Return Token;
+  stop
+endif
+@enduml

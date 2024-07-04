@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant "Auth Service" as Auth
+participant "Database" as DB
+
+User -> Auth: Sign Up
+Auth -> DB: Insert User
+DB --> Auth: Success
+Auth --> User: Token
+
+User -> Auth: Log In
+Auth -> DB: Validate User
+DB --> Auth: Success
+Auth --> User: Token
+@enduml

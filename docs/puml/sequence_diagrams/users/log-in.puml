@@ -1,0 +1,21 @@
+@startuml
+actor User
+participant "Auth Service" as Auth
+participant "Database" as DB
+
+User -> Auth: Log In (email, password)
+Auth -> DB: Find User by email
+alt User not found
+    DB --> Auth: Error (User not found)
+    Auth --> User: Error (User not found)
+else
+    DB --> Auth: User (hashedPassword)
+    Auth -> Auth: Verify Password
+    alt Password correct
+        Auth -> Auth: Generate Token
+        Auth --> User: { user, token }
+    else
+        Auth --> User: Error (Invalid password)
+    end
+end
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+start
+:Enter Product Details;
+:Create Product;
+:Store Product in Database;
+:Return Product;
+stop
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Transaction Service" as Transaction
+participant "Database" as DB
+
+User -> Transaction: Create Transaction (productId, quantity, totalAmount)
+Transaction -> DB: Insert Transaction (productId, quantity, totalAmount)
+DB --> Transaction: Success
+Transaction --> User: Transaction
+@enduml

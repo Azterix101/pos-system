@@ -1,0 +1,44 @@
+@startuml
+class User {
+  -id: int
+  -email: string
+  -password: string
+  +signUp(email: string, password: string): { user: User, token: string }
+  +logIn(email: string, password: string): { user: User, token: string }
+}
+
+class Product {
+  -id: int
+  -name: string
+  -price: float
+  -description: string
+  -quantity: int
+  +create(name: string, price: float, description: string, quantity: int): Product
+  +update(id: int, name: string, price: float, description: string, quantity: int): Product
+  +delete(id: int): void
+  +getAll(): Product[]
+}
+
+class Upsell {
+  -id: int
+  -productId: int
+  -upsellProductId: int
+  +linkUpsell(productId: int, upsellProductId: int): Upsell
+  +getUpsellProducts(productId: int): Upsell[]
+  +removeUpsell(id: int): void
+}
+
+class Transaction {
+  -id: int
+  -productId: int
+  -quantity: int
+  -totalAmount: float
+  +createTransaction(productId: int, quantity: int, totalAmount: float): Transaction
+  +getTransaction(id: int): Transaction
+}
+
+User "1" -- "many" Product: purchases
+Product "1" -- "many" Upsell: upsellProducts
+User "1" -- "many" Transaction: transactions
+Product "1" -- "many" Transaction: included in
+@enduml

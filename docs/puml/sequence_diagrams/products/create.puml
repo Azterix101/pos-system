@@ -1,0 +1,10 @@
+@startuml
+actor Admin
+participant "Product Service" as Product
+participant "Database" as DB
+
+Admin -> Product: Create Product (name, price, description, quantity)
+Product -> DB: Insert Product (name, price, description, quantity)
+DB --> Product: Success
+Product --> Admin: Product
+@enduml

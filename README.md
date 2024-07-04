@@ -117,7 +117,7 @@ The API documentation is available at [http://localhost:3000/documentation](http
 
 ## Postman Collection
 
-A Postman collection is provided for testing the API endpoints. Import the collection using the Postman application:
+A Postman collection is provided for testing the API endpoints (located under docs/postman). Import the collection using the Postman application:
 
 1. Open Postman.
 2. Click on the Import button.

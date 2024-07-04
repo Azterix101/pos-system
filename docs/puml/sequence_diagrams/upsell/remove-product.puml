@@ -1,0 +1,10 @@
+@startuml
+actor Admin
+participant "Upsell Service" as Upsell
+participant "Database" as DB
+
+Admin -> Upsell: Remove Upsell (id)
+Upsell -> DB: Delete Upsell (id)
+DB --> Upsell: Success
+Upsell --> Admin: void
+@enduml

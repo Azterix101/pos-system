@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Upsell Service" as Upsell
+participant "Database" as DB
+
+User -> Upsell: Get Upsell Products (productId)
+Upsell -> DB: Select Upsell Products (productId)
+DB --> Upsell: Upsell[]
+Upsell --> User: Upsell[]
+@enduml

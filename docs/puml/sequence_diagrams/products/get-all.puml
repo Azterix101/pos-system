@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Product Service" as Product
+participant "Database" as DB
+
+User -> Product: Get All Products
+Product -> DB: Select All Products
+DB --> Product: Products[]
+Product --> User: Products[]
+@enduml

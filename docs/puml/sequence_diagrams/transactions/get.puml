@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Transaction Service" as Transaction
+participant "Database" as DB
+
+User -> Transaction: Get Transaction (id)
+Transaction -> DB: Select Transaction (id)
+DB --> Transaction: Transaction
+Transaction --> User: Transaction
+@enduml

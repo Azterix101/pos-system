@@ -1,0 +1,10 @@
+@startuml
+actor Admin
+participant "Product Service" as Product
+participant "Database" as DB
+
+Admin -> Product: Delete Product (id)
+Product -> DB: Delete Product (id)
+DB --> Product: Success
+Product --> Admin: void
+@enduml

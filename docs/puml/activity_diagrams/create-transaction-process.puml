@@ -1,0 +1,8 @@
+@startuml
+start
+:Enter Transaction Details;
+:Create Transaction;
+:Store Transaction in Database;
+:Return Transaction;
+stop
+@enduml

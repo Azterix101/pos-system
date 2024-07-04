@@ -1,0 +1,10 @@
+@startuml
+actor Admin
+participant "Upsell Service" as Upsell
+participant "Database" as DB
+
+Admin -> Upsell: Link Upsell (productId, upsellProductId)
+Upsell -> DB: Insert Upsell (productId, upsellProductId)
+DB --> Upsell: Success
+Upsell --> Admin: Upsell
+@enduml
