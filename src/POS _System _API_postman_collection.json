@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "dc7cf6d5-d116-4a0a-aac4-41af35175045",
+		"name": "POS System API",
+		"description": "Collection of POS System API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Authentication",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"email\": \"user@example.com\", \"password\": \"password123\" }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"signup"
+							]
+						},
+						"description": "Sign up with a unique email, and password."
+					},
+					"response": []
+				},
+				{
+					"name": "Log In",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"email\": \"user@example.com\", \"password\": \"password123\" }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "Log in with their email and password."
+					},
+					"response": []
+				}
+			],
+			"description": "Token-based authentication for securing API endpoints."
+		},
+		{
+			"name": "Product Management",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"Product Name\", \"price\": 100, \"description\": \"Product Description\", \"quantity\": 10 }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						},
+						"description": "Create a new product with name, price, description, and quantity attributes."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						},
+						"description": "Retrieve a list of all products."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"Updated Product Name\", \"price\": 120, \"description\": \"Updated Description\", \"quantity\": 15 }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
+						},
+						"description": "Update the details of an existing product."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
+						},
+						"description": "Delete a product from the system"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints to manage products."
+		},
+		{
+			"name": "Upsell Product Management",
+			"item": [
+				{
+					"name": "Link Upsell Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"productId\": 1, \"upsellProductId\": 2 }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/upsells",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"upsells"
+							]
+						},
+						"description": "Link a product to another as an upsell product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Upsell Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/upsells/:productId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"upsells",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId"
+								}
+							]
+						},
+						"description": "Retrieve upsell products linked to a specific product."
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Upsell Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/upsells/:productId/:upsellProductId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"upsells",
+								":productId",
+								":upsellProductId"
+							],
+							"variable": [
+								{
+									"key": "productId"
+								},
+								{
+									"key": "upsellProductId"
+								}
+							]
+						},
+						"description": "Remove a product from being an upsell product of another."
+					},
+					"response": []
+				}
+			],
+			"description": "Manage upsell products"
+		},
+		{
+			"name": "Sales and Transactions",
+			"item": [
+				{
+					"name": "Create Transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"products\": [{ \"productId\": 1, \"quantity\": 2 }], \"totalAmount\": 200, \"upsells\": [{ \"productId\": 2, \"quantity\": 1 }] }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transactions"
+							]
+						},
+						"description": "Create a new sale transaction with details of products sold, quantities, and total  \namount."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/transactions/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transactions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
+						},
+						"description": "  \nRetrieve details of a specific transaction."
+					},
+					"response": []
+				}
+			],
+			"description": "Handle sales and transactions and allow the specification of any upsell products that are linked to any  \nproduct sold."
+		}
+	]
+}
