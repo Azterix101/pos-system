@@ -26,6 +26,9 @@ Product.init({
   price: {
     type: DataTypes.FLOAT,
     allowNull: false,
+    validate: {
+      isFloat: { msg: 'Price must be a number' },
+    },
   },
   description: {
     type: DataTypes.STRING,
@@ -35,11 +38,21 @@ Product.init({
   quantity: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    validate: {
+      isInt: { msg: 'Quantity must be an integer' },
+    },
   },
 }, {
   sequelize,
   modelName: 'product',
   tableName: 'products',
+  timestamps: true,
+  indexes: [
+    {
+      unique: true,
+      fields: ['name'],
+    },
+  ],
 });
 
 export default Product;
