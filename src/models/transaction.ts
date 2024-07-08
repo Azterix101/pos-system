@@ -25,15 +25,27 @@ Transaction.init({
   quantity: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    validate: {
+      isInt: { msg: 'Quantity must be an integer' },
+    },
   },
   totalAmount: {
     type: DataTypes.FLOAT,
     allowNull: false,
+    validate: {
+      isFloat: { msg: 'Total amount must be a number' },
+    },
   },
 }, {
   sequelize,
   modelName: 'transaction',
   tableName: 'transactions',
+  timestamps: true,
+  indexes: [
+    {
+      fields: ['productId'],
+    },
+  ],
 });
 
 Transaction.belongsTo(Product, { foreignKey: 'productId' });
